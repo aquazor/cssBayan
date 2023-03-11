@@ -1,4 +1,91 @@
-*{
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(213, 242, 255);
+}
+
+header,
+main {
+  margin: auto;
+}
+
+h1 {
+  margin: 50px 0 20px 0;
+}
+
+.accordion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.accordion-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 650px;
+  padding: 10px;
+  font-size: 20px;
+  color: rgb(60, 106, 255);
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.accordion:hover .accordion-title {
+  color: black;
+}
+
+.icon {
+  transform: rotate(90deg);
+}
+
+input {
+  display: none;
+}
+
+.content {
+  /* display: flex;
+  justify-content: center; */
+  width: 100%;
+  padding: 0 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s;
+  cursor: pointer;
+}
+
+.content img {
+  display: block;
+  width: 0px;
+  margin: 0 auto 6px auto;
+  transition: width 0.3s;
+}
+
+.accordion-item:hover .accordion-title + .content,
+input:checked + .accordion-title + .content {
+  max-height: 400px;
+}
+
+input:checked + .accordion-title + .content img,
+.accordion-item:hover .content img {
+  width: 350px;
+}
+
+input:checked + .accordion-title {
+  color: black;
 }
