@@ -1,7 +1,28 @@
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(213, 242, 255);
+  width: 100%;
+  height: 100%;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .accordion-wrapper {
@@ -9,18 +30,21 @@
   flex-direction: column;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: rgb(213, 242, 255);
+.container {
+  margin: 0 auto;
+  max-width: 69rem;
+  padding: 0 2rem;
 }
 
-header,
-main {
-  margin: auto;
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 h1 {
-  margin: 50px 0 20px 0;
+  font-size: 3.2rem;
 }
 
 .accordion-item {
@@ -28,19 +52,24 @@ h1 {
   flex-direction: column;
   align-items: center;
   list-style: none;
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
   background-color: white;
-  padding: 8px;
-  border-radius: 5px;
+  padding: 1rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0.8rem 0.8rem 1rem 0 rgba(125, 132, 255, 0.6);
+  -moz-box-shadow: 0.8rem 0.8rem 1rem 0 rgba(125, 132, 255, 0.6);
+  box-shadow: 0.8rem 0.8rem 1rem 0 rgba(125, 132, 255, 0.6);
 }
 
 .accordion-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-width: 650px;
-  padding: 10px;
-  font-size: 20px;
+  width: 100%;
+  max-width: 65rem;
+  padding: 0.8rem;
+  font-size: 2rem;
+  line-height: 3rem;
   color: rgb(60, 106, 255);
   cursor: pointer;
   transition: color 0.5s;
@@ -52,6 +81,7 @@ h1 {
 
 .icon {
   transform: rotate(90deg);
+  transition: transform 0.5s;
 }
 
 input {
@@ -59,33 +89,36 @@ input {
 }
 
 .content {
-  /* display: flex;
-  justify-content: center; */
   width: 100%;
-  padding: 0 10px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s;
   cursor: pointer;
+  transition: max-height 0.3s;
 }
 
 .content img {
   display: block;
-  width: 0px;
-  margin: 0 auto 6px auto;
+  width: 0;
+  margin: 1rem auto;
   transition: width 0.3s;
 }
 
 .accordion-item:hover .accordion-title + .content,
 input:checked + .accordion-title + .content {
-  max-height: 400px;
+  max-height: 40rem;
 }
 
 input:checked + .accordion-title + .content img,
 .accordion-item:hover .content img {
-  width: 350px;
+  width: 35rem;
 }
 
+input:checked + .accordion-title .icon,
+.accordion-item:hover .icon {
+  transform: rotate(-90deg);
+}
+
+.accordion-item:hover .accordion-title + .content,
 input:checked + .accordion-title {
   color: black;
 }
